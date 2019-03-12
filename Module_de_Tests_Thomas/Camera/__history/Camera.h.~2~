@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef CameraH
+#define CameraH
+//---------------------------------------------------------------------------
+
+class Camera
+{
+	private:
+			File ImageRef;
+			File ImageAcquise;
+			bool Connect();
+			bool Disconnect();
+			bool AllumerCamera();
+			bool EteindreCamera();
+			void PrendrePhoto();
+
+
+
+
+
+	public:
+			Camera();
+			~Camera();
+
+};
+
+
+#endif

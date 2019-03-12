@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef PDFH
+#define PDFH
+//---------------------------------------------------------------------------
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "./share/litePDF.h"
+
+#include <string.h>
+
+
+
+
+class PDF
+{
+	private:
+
+
+
+	public:
+			PDF();
+			~PDF();
+			bool Rapport();
+};
+
+#endif

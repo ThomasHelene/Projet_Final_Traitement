@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+#ifndef PDFH
+#define PDFH
+//---------------------------------------------------------------------------
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "./include/resource.h"
+
+
+
+
+
+class PDF
+{
+	private:
+
+
+
+	public:
+			PDF();
+			~PDF();
+			bool Rapport();
+};
+
+#endif

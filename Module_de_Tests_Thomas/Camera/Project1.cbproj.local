@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2019/03/07 09:41:18.350,=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/07 09:41:18.365,=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/07 09:42:02.300,=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit2.cpp</Transaction>
+    <Transaction>2019/03/07 09:42:11.904,C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Camera.cpp=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit2.cpp</Transaction>
+    <Transaction>2019/03/07 09:42:11.904,C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Camera.h=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit2.h</Transaction>
+    <Transaction>2019/03/07 09:46:04.145,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Camera.h=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Camera.h</Transaction>
+    <Transaction>2019/03/07 09:46:04.145,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Camera.cpp=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Camera.cpp</Transaction>
+    <Transaction>2019/03/07 09:46:08.450,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Unit1.h=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
+    <Transaction>2019/03/07 09:46:08.450,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Unit1.dfm=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
+    <Transaction>2019/03/07 09:46:08.450,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Unit1.cpp=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/07 09:46:09.187,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Project1PCH1.h=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/07 09:46:10.229,C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Project1.cbproj=C:\Users\Thelene\Documents\Embarcadero\Studio\Projets\Project1.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>
