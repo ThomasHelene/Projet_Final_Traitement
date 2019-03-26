@@ -3,12 +3,14 @@
 #ifndef CameraH
 #define CameraH
 //---------------------------------------------------------------------------
-
+#include <string>
+#include "include/cxcore.h"
+#include "include/highgui.h"
 class Camera
 {
 	private:
-			FILE ImageRef;
-			FILE ImageAcquise;
+			std::string ImageRef;
+			std::string ImageAcquise;
 			bool Connect();
 			bool Disconnect();
 			bool AllumerCamera();
@@ -22,7 +24,7 @@ class Camera
 	public:
 			Camera();
 			~Camera();
-			FILE GetImagePrise();
+			std::string GetImagePrise();
 			bool IsImageprise();
 
 };

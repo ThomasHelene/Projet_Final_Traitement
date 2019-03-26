@@ -1,0 +1,30 @@
+//---------------------------------------------------------------------------
+
+#ifndef NotifierH
+#define NotifierH
+//---------------------------------------------------------------------------
+  #include <string.h>
+ class Notifier
+ {
+	 private:
+
+
+
+	 public:
+
+	 Notifier();
+	 ~Notifier();
+
+	 virtual bool Rapport()=0;
+	 void GetMessageErreur(String Erreur);
+
+
+
+
+ };
+
+
+
+
+
+#endif
