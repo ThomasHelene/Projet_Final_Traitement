@@ -12,7 +12,7 @@ int main()
 {
     std::cout << "Hello World!\n"; 
 	PDF * test;
-	test = new PDF();
+	test = new PDF(L"E:\\kermit.jpg");
 	bool etat = test->getEtat();
 	
 	if (etat==true)

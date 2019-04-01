@@ -3,10 +3,10 @@
 
 #pragma endregion
 
-PDF::PDF()
+PDF::PDF(std::wstring ImageAcq)
 {
 	
-
+	ImageAcquise = ImageAcq;
 	
 	hThread = CreateThread(NULL, 0,  Rapport,this, 0, NULL);
 	WaitForSingleObject(hThread, INFINITE);
@@ -102,7 +102,11 @@ PDF::~PDF()
 		 variant_t Width = 300;
 		 variant_t Height = 300;
 		 variant_t left = 100;
-		 spDoc->Shapes->AddPicture(_bstr_t(L"E:\\kermit.jpg"), &vtMissing, &vtMissing, &Left, &Top, &Width, &Height, &vtMissing);
+		 BSTR bstr;
+		 std::wstring test;
+		 test = pdf->ImageAcquise;
+		 bstr =SysAllocStringLen(test.data(), test.size());
+		 spDoc->Shapes->AddPicture(bstr, &vtMissing, &vtMissing, &Left, &Top, &Width, &Height, &vtMissing);
 
 		 
 
@@ -129,7 +133,7 @@ PDF::~PDF()
 		 }
 
 		 // Concaténe le nom du fichier à l'adresse du fichier
-		 wcsncat_s(szFileName, ARRAYSIZE(szFileName), L"Sample1.pdf", 12);
+		 wcsncat_s(szFileName, ARRAYSIZE(szFileName), L"Exemple.pdf", 12);
 
 
 

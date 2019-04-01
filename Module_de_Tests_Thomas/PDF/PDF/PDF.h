@@ -41,12 +41,14 @@ class PDF
 private:
 	HANDLE hThread;
 	bool Etat;
+	std::wstring ImageAcquise;
 static  DWORD WINAPI Rapport(LPVOID lpParam);
 	static DWORD GetDossier(LPWSTR pszDir, DWORD nSize);
 public:
-	PDF();
+	PDF(std::wstring ImageAcq);
 	~PDF();
 	bool getEtat();
+	
 	
 };
 
