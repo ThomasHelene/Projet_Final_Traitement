@@ -19,11 +19,13 @@ private:
 	HANDLE hComm;
 	DCB serie;
 	OVERLAPPED over;
+	bool EtatRapport;
 
 	bool Initialisation(std::string CodeSim);
 	void Rapport(std::string Rapport,std::string Numero);
 public:
 	Modem(std::string Texte,std::string Numero);
+	bool GetEtatRapport();
 	~Modem();
 };
 

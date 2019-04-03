@@ -13,6 +13,10 @@ Auteur ...... : Thomas Hélène
 int main()
 {
 	Modem test("exemple","648579166");
+	if (test.GetEtatRapport() == true)
+	{
+		printf("Rapport Envoyé . Vous pouvez fermer cette fenêtre \n\r");
+	}
 
 	
 	

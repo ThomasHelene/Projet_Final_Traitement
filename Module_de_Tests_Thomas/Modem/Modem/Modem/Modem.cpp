@@ -31,7 +31,7 @@ Modem::Modem(std::string Texte,std::string Numero)
 
 	// On Insère le Code Pin
 	bool etatInitialisation=Initialisation("0000");
-	int i;
+
 	
 	if (etatInitialisation == true)
 	{
@@ -40,8 +40,8 @@ Modem::Modem(std::string Texte,std::string Numero)
 		// On envoie le Rapport au numéro souhaité
 		Rapport(Texte, Numero);
 	
-		
-			printf("Rapport Envoyé . Vous pouvez fermer cette fenêtre \n\r");
+
+			
 
 	
 	}
@@ -114,7 +114,7 @@ bool Modem::Initialisation(std::string CodeSim)
 
 }
 
-bool Modem::Rapport(std::string Texte,std::string Numero)
+void Modem::Rapport(std::string Texte,std::string Numero)
 {
 	// Prépare la Commande AT pour l'envoi d'un SMS avec le numéro voulu et le texte voulu
 	std::string commande;
@@ -131,18 +131,15 @@ bool Modem::Rapport(std::string Texte,std::string Numero)
 	DWORD dNoOFBytestoWrite = commande.length();         // No of bytes to write into the port
 	DWORD dNoOfBytesWritten = 0;
 
-	if (WriteFile(hComm,        // Handle to the Serial port
+	WriteFile(hComm,        // Handle to the Serial port
 		commande.c_str(),     // Data to be written to the port
 		dNoOFBytestoWrite,  //No of bytes to write
 		&dNoOfBytesWritten, //Bytes written
-		NULL))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+		NULL);
+	
+	EtatRapport = true;
+	
+
 
 	
 
@@ -150,4 +147,9 @@ bool Modem::Rapport(std::string Texte,std::string Numero)
 
 	
 
+}
+
+bool Modem::GetEtatRapport()
+{
+	return EtatRapport;
 }
