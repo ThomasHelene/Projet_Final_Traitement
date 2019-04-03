@@ -21,7 +21,7 @@ private:
 	OVERLAPPED over;
 
 	bool Initialisation(std::string CodeSim);
-	bool Rapport(std::string Rapport,std::string Numero);
+	void Rapport(std::string Rapport,std::string Numero);
 public:
 	Modem(std::string Texte,std::string Numero);
 	~Modem();

@@ -38,13 +38,16 @@ Modem::Modem(std::string Texte,std::string Numero)
 		printf("Code Pin inséré ! Emission du Rapport.\n\r");
 		
 		// On envoie le Rapport au numéro souhaité
-		bool EtatRapport = Rapport(Texte, Numero);
+		Rapport(Texte, Numero);
+	
 		
-		if (EtatRapport == true)
-		{
 			printf("Rapport Envoyé . Vous pouvez fermer cette fenêtre \n\r");
 
-		}
+	
+	}
+	else
+	{
+		MessageBox(NULL, L" Mauvais Code Pin ou Modem non Connecté",L"Erreur Modem", 0x00000000L);
 	}
 	
 
