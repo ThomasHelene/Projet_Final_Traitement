@@ -17,6 +17,10 @@ int main()
 	{
 		printf("Rapport Envoyé . Vous pouvez fermer cette fenêtre \n\r");
 	}
+	else
+	{
+		MessageBox(NULL,L"Rapport Non envoyé, relancez",L"Erreur Modem",)
+	}
 
 	
 	
