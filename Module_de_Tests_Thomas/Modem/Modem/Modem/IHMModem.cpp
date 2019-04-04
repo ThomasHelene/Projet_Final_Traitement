@@ -12,10 +12,23 @@ Auteur ...... : Thomas Hélène
 
 int main()
 {
-	Modem test("exemple","648579166");
+	char numero[100];
+	int i;
+
+	printf("Entrez un numero valide", numero);
+	scanf_s("%s", &numero);
+
+	char numero1[100];
+	for (i = 1; i < strlen(numero); i++)
+		numero1[i-1] = numero[i];
+	numero1[i-1] = '\0';
+	numero1[i] = '\0';
+	printf("%s \n", numero1);
+	
+	Modem test("exemple",numero1);
 	if (test.GetEtatRapport() == true)
 	{
-		printf("Rapport Envoyé . Vous pouvez fermer cette fenêtre \n\r");
+		printf("Message Envoyé . Vous pouvez fermer cette fenêtre \n\r");
 	}
 	else
 	{
