@@ -19,7 +19,7 @@ int main()
 	}
 	else
 	{
-		MessageBox(NULL,L"Rapport Non envoyé, relancez",L"Erreur Modem",)
+		MessageBox(NULL, L"Rapport Non envoyé, relancez", L"Erreur Modem", 0x00000000L);
 	}
 
 	

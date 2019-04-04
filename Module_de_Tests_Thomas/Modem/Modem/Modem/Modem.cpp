@@ -13,13 +13,8 @@ Auteur ...... : Thomas Hélène
 Modem::Modem(std::string Texte,std::string Numero)
 {
 	// Préparation du Handle pour la communication avec le Modem GSM
-	hComm = CreateFile(L"COM1",
-		GENERIC_READ | GENERIC_WRITE,
-		0,
-		0,
-		OPEN_EXISTING,
-		FILE_FLAG_NO_BUFFERING,
-		0);
+	hComm = CreateFile(L"COM1",GENERIC_READ | GENERIC_WRITE,0,
+		0,OPEN_EXISTING,FILE_FLAG_NO_BUFFERING,0);
 
 	GetCommState(hComm, &serie);
 	serie.BaudRate = 9600;
@@ -28,29 +23,19 @@ Modem::Modem(std::string Texte,std::string Numero)
 	serie.StopBits = ONESTOPBIT;
 	SetCommState(hComm, &serie);
 
-
 	// On Insère le Code Pin
-	bool etatInitialisation=Initialisation("0000");
-
-	
+	bool etatInitialisation=Initialisation("0000");	
 	if (etatInitialisation == true)
 	{
 		printf("Code Pin inséré ! Emission du Rapport.\n\r");
-		
 		// On envoie le Rapport au numéro souhaité
-		Rapport(Texte, Numero);
-	
-
-			
-
-	
+		Rapport(Texte, Numero);		
 	}
 	else
 	{
 		MessageBox(NULL, L" Mauvais Code Pin ou Modem non Connecté",L"Erreur Modem", 0x00000000L);
 	}
 	
-
 
 }
 
