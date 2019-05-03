@@ -1,0 +1,49 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "sql.h"
+
+
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+	bool Sql::OnConnect(){
+			// Utiliser la librairie mysql pour se connecter
+			  if (!mysql_real_connect(mySQL, "192.168.64.111", "root", "root", "test", 0, NULL, 0))
+			   {
+				// la connection a échoué
+
+			   }
+			   else
+			   {
+				// la connection a réussi
+
+			   }
+	}
+
+
+
+	Recette Sql::GetRecette(int IdRecette){
+			 Recette R1 ;
+			 // utilise l'objet mysql de la librairie pour executer une requete
+			 // R1 = new Recette(t1,T2,T3)
+
+			 //3,6,5,1 viernt de la base
+			 R1.creerRecette(3,6,5,1) ;
+
+			 return R1;
+
+	}
+
+
+	Sql::Sql()
+	{
+
+		mySQL = mysql_init(NULL);
+
+
+
+	}
+	Sql::~Sql(){}

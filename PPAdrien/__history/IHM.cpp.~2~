@@ -1,0 +1,35 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "IHM.h"
+#include "sql.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+	Sql_1 = new Sql();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	// si la connexion se pass bien
+	if(Sql_1->OnConnect()){
+
+		int test = 1;
+	   // txtIdRecette->Text
+	   Recette R1 = Sql_1->GetRecette(txtIdRecette->Text.ToInt());
+
+	}else
+	{
+
+		 //Sql_1->ReConnect();
+	}
+
+}
+//---------------------------------------------------------------------------

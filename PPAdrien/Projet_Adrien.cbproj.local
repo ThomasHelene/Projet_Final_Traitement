@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/11/15 10:41:19.000.796,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2018/11/15 10:41:20.000.484,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/02/05 16:46:55.000.470,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/02/05 16:46:55.000.454,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/02/05 16:47:43.000.472,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/02/05 16:47:43.000.485,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/21 14:48:24.000.980,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/21 14:48:24.000.965,=C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/21 14:48:59.000.021,C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.dfm=C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.dfm</Transaction>
+    <Transaction>2019/03/21 14:48:59.000.021,C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.cpp=C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.cpp</Transaction>
+    <Transaction>2019/03/21 14:48:59.000.021,C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Unit1.h=C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.h</Transaction>
+    <Transaction>2019/03/21 14:49:01.000.399,C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\Adrien\Desktop\projet fin année\testV2\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/21 14:49:03.000.044,C:\Users\Adrien\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\Adrien\Desktop\projet fin année\testV2\Project1.cbproj</Transaction>
+    <Transaction>2019/03/21 14:50:11.000.828,=C:\Users\Adrien\Desktop\projet fin année\testV2\include\libmysql.lib</Transaction>
+    <Transaction>2019/03/21 14:53:38.000.840,=C:\Users\Adrien\Desktop\projet fin année\testV2\sql.cpp</Transaction>
+    <Transaction>2019/03/21 14:53:38.000.831,=C:\Users\Adrien\Desktop\projet fin année\testV2\recette.cpp</Transaction>
+    <Transaction>2019/04/01 14:04:24.000.218,C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.h=C:\Users\Adrien\Desktop\projet fin année\testV2\IHM.h</Transaction>
+    <Transaction>2019/04/01 14:04:24.000.218,C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.dfm=C:\Users\Adrien\Desktop\projet fin année\testV2\IHM.dfm</Transaction>
+    <Transaction>2019/04/01 14:04:24.000.218,C:\Users\Adrien\Desktop\projet fin année\testV2\Unit1.cpp=C:\Users\Adrien\Desktop\projet fin année\testV2\IHM.cpp</Transaction>
+    <Transaction>2019/04/05 16:59:54.000.896,C:\Users\Adrien\Desktop\projet fin année\testV2\Project1.cbproj=C:\Users\Adrien\Desktop\projet fin année\testV2\Project1.cbproj</Transaction>
+    <Transaction>2019/05/03 16:39:16.000.785,C:\Users\Adrien\Desktop\projet fin année\PPAdrien\Project1.cbproj=C:\Users\Adrien\Desktop\projet fin année\PPAdrien\Projet_Adrien.cbproj</Transaction>
+    <Transaction>2019/05/03 16:39:16.000.765,C:\Users\Adrien\Desktop\projet fin année\PPAdrien\Project1PCH1.h=C:\Users\Adrien\Desktop\projet fin année\PPAdrien\Projet_AdrienPCH1.h</Transaction>
+  </Transactions>
+</BorlandProject>

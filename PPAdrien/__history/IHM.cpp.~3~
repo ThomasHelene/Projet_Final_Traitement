@@ -1,0 +1,59 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "IHM.h"
+#include "sql.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+	Sql_1 = new Sql();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	// si la connexion se passe bien
+	if(Sql_1->OnConnect("192.168.64.111","pharma","pharma","traitement") == true){
+		Shape1->Brush->Color = clLime;
+	}else
+	{
+		Shape1->Brush->Color = clRed;
+		 //Sql_1->ReConnect();
+	}
+
+}
+//---------------------------------------------------------------------------
+
+//void __fastcall TForm1::Server1Connect(TIdContext *AContext)
+//{
+
+//Trame->Lines->Add("Serveur connecté!");
+//Trame->Lines->Add("L'addresse ip du client est :");
+//Trame->Lines->Add(AContext->Binding->PeerIP);
+//Trame->Lines->Add("L'addresse du port du client est :");
+//Trame->Lines->Add(AContext->Binding->PeerPort);
+//	if(int i)
+//	{
+//	 client->Host="192.168.64.124";
+//			client->Port=502;
+//			client->Connect();
+//	}
+//while(AContext->Connection->Socket->Connected()==true)
+//{
+//requete=AContext->Connection->Socket->ReadLn();
+//
+//}
+////---------------------------------------------------------------------------
+//
+//void __fastcall TForm1::Server1Execute(TIdContext *AContext)
+//{
+//Trame->Lines->Add("Le serveur a reçu");
+//}
+//---------------------------------------------------------------------------
+
