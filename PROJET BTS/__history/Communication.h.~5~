@@ -1,0 +1,26 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommunicationH
+#define CommunicationH
+#include "Modbus.h"
+#include <string>
+#include <vector>
+
+class Communication
+{
+	protected:
+	std::vector<CommEventManager*> eventManager;
+
+	public:
+
+	void addEventManager(CommEventManager * em);
+	bool removeEventManager(CommEventManager * em);
+	virtual void Connect(String params);
+	virtual bool isConnected();
+	virtual char * Receive(int size);
+	virtual bool Send(char * buffer, int size);
+	virtual void Disconnect();
+
+};
+//---------------------------------------------------------------------------
+#endif

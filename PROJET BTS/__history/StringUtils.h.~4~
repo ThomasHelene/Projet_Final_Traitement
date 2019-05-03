@@ -1,0 +1,15 @@
+//---------------------------------------------------------------------------
+
+#ifndef StringUtilsH
+#define StringUtilsH
+#include <vector>
+#include <string>
+
+class StringUtils
+{
+	public:
+		static const vector<std::string> explode(const string& s, const char& c);
+};
+
+//---------------------------------------------------------------------------
+#endif

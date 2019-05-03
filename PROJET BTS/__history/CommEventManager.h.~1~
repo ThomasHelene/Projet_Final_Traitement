@@ -1,0 +1,16 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommEventManagerH
+#define CommEventManagerH
+
+class CommEventManager
+{
+
+	void onConnected();
+	void onDisconnected();
+	void onError();
+
+};
+
+//---------------------------------------------------------------------------
+#endif

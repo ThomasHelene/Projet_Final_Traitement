@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "CommEventManager.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+
+	void CommEventManager::onConnected() //par référence à ajouter
+	{
+	 this->onConnected();
+	}
+
+	void CommEventManager::onDisconnected()
+	{
+	 this->onDisconnected();
+	}
+
+	void CommEventManager::onError()
+	{
+	 this->onError();
+    }
+

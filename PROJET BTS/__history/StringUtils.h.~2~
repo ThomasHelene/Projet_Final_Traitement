@@ -1,0 +1,13 @@
+//---------------------------------------------------------------------------
+
+#ifndef StringConnectH
+#define StringConnectH
+
+class StringUtils
+{
+	public:
+		static const vector<string> explode(const string& s, const char& c);
+};
+
+//---------------------------------------------------------------------------
+#endif

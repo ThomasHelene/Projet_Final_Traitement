@@ -1,0 +1,13 @@
+//---------------------------------------------------------------------------
+
+#ifndef StringUtilsH
+#define StringUtilsH
+
+class StringUtils
+{
+	public:
+		static const vector<string> explode(const string& s, const char& c);
+};
+
+//---------------------------------------------------------------------------
+#endif

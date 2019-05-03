@@ -1,0 +1,34 @@
+//---------------------------------------------------------------------------
+
+#ifndef IHMH
+#define IHMH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "Modbus.h"
+#include "CommEventManagerIHM.h"
+#include "Communication.h"
+#include "CommEventManager.h"
+#include "TCP_Client.h"
+//---------------------------------------------------------------------------
+class CommEventManagerIHM;
+
+class TForm1 : public TForm
+{
+__published:	// Composants gérés par l'EDI
+	TButton *ConnectClient_Methodes_Bt;
+	TLabel *EtatMethode;
+	void __fastcall ConnectClient_Methodes_BtClick(TObject *Sender);
+private:
+Modbus * modbus;
+CommEventManagerIHM * eventManagers;
+	// Déclarations utilisateur
+public:	// Déclarations utilisateur
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

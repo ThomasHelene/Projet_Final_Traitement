@@ -1,0 +1,30 @@
+//---------------------------------------------------------------------------
+
+#ifndef ModbusH
+#define ModbusH
+#include "Communication.h"
+#include "TCP_Client.h"
+
+
+class Modbus
+{
+
+	private:
+
+	Communication * comm;
+
+	public:
+
+	Modbus();
+	virtual ~Modbus();
+	void addEventManager(CommEventManager * em);
+	bool removeEventManager(CommEventManager * em);
+	void writeWord(int word, int value);
+	bool isConnected();
+
+};
+
+
+
+//---------------------------------------------------------------------------
+#endif

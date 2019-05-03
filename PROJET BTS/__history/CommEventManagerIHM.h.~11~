@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommEventManagerIHMH
+#define CommEventManagerIHMH
+#include "IHM.h"
+#include <vcl.h>
+#include "CommEventManager.h"
+#include <string>
+
+class TForm1;
+
+class CommEventManagerIHM : public CommEventManager
+{
+
+	private:
+
+	TForm1  * ihm;
+
+	public:
+
+	CommEventManagerIHM(TForm1 * ihm);
+	 void onConnected();
+	 void onDisconnected();
+	 void onError(string errorMessage);
+
+};
+
+//---------------------------------------------------------------------------
+#endif

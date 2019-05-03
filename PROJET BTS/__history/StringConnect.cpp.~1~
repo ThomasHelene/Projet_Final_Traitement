@@ -1,0 +1,25 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "StringUtils.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+#include <string>
+#include <vector>
+
+const vector<string> StringUtils::explode(const string& s, const char& c)
+{
+	string buff{""};
+	vector<string> v;
+
+	for(auto n:s)
+	{
+		if(n != c) buff+=n; else
+		if(n == c && buff != "") { v.push_back(buff); buff = ""; }
+	}
+	if(buff != "") v.push_back(buff);
+
+	return v;
+}

@@ -1,0 +1,58 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Modbus.h"
+#include "TCP_Client.h"
+#include "Communication.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+	Modbus::Modbus()
+	{
+	comm = new TCP_Client();
+	}
+
+	Modbus::~Modbus()
+	{
+		delete comm;
+	}
+
+	void Modbus::addEventManager(CommEventManager * em)
+	{
+		comm->addEventManager(em);
+	}
+
+	bool Modbus::removeEventManager(CommEventManager * em)
+	{
+		comm->removeEventManager(em);
+		return true;
+	}
+
+
+	void Modbus::writeWord(int word, int value)
+	{
+		char trame[12];
+		trame[0] = 0x00;
+		trame[1] = 0x00;
+		trame[2] = 0x00;
+		trame[3] = 0x00;
+		trame[4] = 0x00;
+		trame[5] = 0x06;
+		trame[6] = 0x00;
+		trame[7] = 0x06;
+		trame[8] = (word & 0xFF00) >> 8;
+		trame[9] = word & 0x00FF;
+		trame[10] = (value & 0xFF00) >> 8;
+		trame[11] = value & 0x00FF;
+
+		comm->Send(writeWord, 12);
+	}
+
+	bool Modbus::isConnected()
+	{
+		comm->isConnected();
+		return true;
+	}
+
+

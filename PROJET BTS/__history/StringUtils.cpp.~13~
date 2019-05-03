@@ -1,0 +1,48 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "StringUtils.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+#include <string>
+#include <vector>
+#include <vcl.h>
+
+const std::vector<std::string> StringUtils::explode(const std::string& s, const char& c)
+{
+	std::string buff = "";
+
+	std::vector<std::string> v;
+
+	for(int i = 0; i < s.length(); i++)
+	{
+		char n = s[i];
+		if(n != c) buff+=n;
+
+		else if(n == c && buff != "")
+		{
+		v.push_back(buff); buff = "";
+		}
+	}
+
+	if(buff != "")
+	v.push_back(buff);
+
+	return v;
+}
+
+std::string StringUtils::convertStr(UnicodeString str)
+{
+	int len = str.Length();
+	char * buf = new char[len + 1];
+	for(int i = 0; i < len + 1; i++)
+		buf[i] = 0;
+
+	wcstombs(buf, str.c_str(), len);
+
+	std::string res(buf);
+	delete buf;
+	return res;
+}
