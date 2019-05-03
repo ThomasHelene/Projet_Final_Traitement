@@ -1,0 +1,22 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommunicationH
+#define CommunicationH
+
+class <<abstract>> Communication
+{
+	protected:
+	std::vector <CommEventManager*> eventManager;
+
+	public:
+
+	void addEventManager(CommEventManager * em);
+	bool removeEventManager(CommEventManager * em);
+//	void Connect(String params)=0;
+//	bool isConnected()=0;
+//	char * Receive(int size)=0;
+//	bool Send(char * buffer, int size)=0;
+//	void Disconnect()=0;
+};
+//---------------------------------------------------------------------------
+#endif

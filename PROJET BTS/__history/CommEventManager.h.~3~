@@ -1,0 +1,17 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommEventManagerH
+#define CommEventManagerH
+#include "IHM.h"
+
+class CommEventManager
+{
+
+	virtual void onConnected();
+	virtual void onDisconnected();
+	virtual void onError();
+
+};
+
+//---------------------------------------------------------------------------
+#endif

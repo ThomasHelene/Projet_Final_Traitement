@@ -1,0 +1,22 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "CommEventManagerIHM.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+	 void CommEventManagerIHM::onConnected()
+	 {
+
+	 }
+
+	 void CommEventManagerIHM::onDisconnected()
+	 {
+
+	 }
+
+	 void CommEventManagerIHM::onError(string errorMessage)
+	 {
+
+     }

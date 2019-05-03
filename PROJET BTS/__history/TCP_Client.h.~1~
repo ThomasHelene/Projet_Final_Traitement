@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#ifndef TCP_ClientH
+#define TCP_ClientH
+
+class TCP_Client
+{
+
+  private:
+
+  TIdTCPClient * Client;
+
+  public:
+
+  void Connect(String params);
+  bool isConnected();
+  char * Receive(int size);
+  bool Send(char * buffer, int size);
+  void Disconnect();
+
+
+};
+//---------------------------------------------------------------------------
+#endif

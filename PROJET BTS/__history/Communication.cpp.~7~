@@ -1,0 +1,59 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Communication.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+
+	void Communication::addEventManager(CommEventManager * em)
+	{
+        eventManager.push_back(em);
+	}
+
+	bool Communication::removeEventManager(CommEventManager * em)
+	{
+		auto it = eventManager.begin()
+		bool bFound = false;
+		for(; it != eventManager.end(); it++)
+		{
+			if(*it == em)
+			{
+				bFound = true;
+				break;
+			}
+		}
+
+		if(bFound)
+			eventManager.erase(it);
+
+		return bFound;
+	}
+
+	//
+
+	void Communication::Connect(String params)
+	{
+
+	}
+
+	bool Communication::isConnected()
+	{
+		 return true;
+	}
+
+	char * Communication::Receive(int size)
+	{
+
+	}
+
+	bool Communication::Send(char * buffer, int size)
+	{
+
+	}
+
+	void Communication::Disconnect()
+	{
+
+	}

@@ -1,0 +1,93 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 807
+  ClientWidth = 1124
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object EtatMethode: TLabel
+    Left = 1008
+    Top = 783
+    Width = 64
+    Height = 13
+    Caption = 'Disconnected'
+  end
+  object Shape1: TShape
+    Left = 992
+    Top = 24
+    Width = 89
+    Height = 41
+    Brush.Color = clRed
+    Shape = stCircle
+  end
+  object ConnexionPC_Methode: TButton
+    Left = 973
+    Top = 744
+    Width = 143
+    Height = 33
+    Caption = 'Connexion PC Methodes'
+    TabOrder = 0
+    OnClick = ConnexionPC_MethodeClick
+  end
+  object Connect_Automate: TButton
+    Left = 960
+    Top = 71
+    Width = 156
+    Height = 42
+    Caption = 'Se connecter avec l'#39'automate'
+    TabOrder = 1
+    OnClick = Connect_AutomateClick
+  end
+  object Sender: TGroupBox
+    Left = 264
+    Top = 240
+    Width = 273
+    Height = 153
+    Caption = 'Sender'
+    TabOrder = 2
+    object Launch: TButton
+      Left = 40
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'Launch'
+      TabOrder = 0
+      OnClick = LaunchClick
+    end
+    object Close: TButton
+      Left = 163
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'Close'
+      TabOrder = 1
+      OnClick = CloseClick
+    end
+    object Send_Recette: TButton
+      Left = 40
+      Top = 96
+      Width = 75
+      Height = 25
+      Caption = 'SendRecette'
+      TabOrder = 2
+      OnClick = Send_RecetteClick
+    end
+    object Raz_Bt: TButton
+      Left = 160
+      Top = 96
+      Width = 75
+      Height = 25
+      Caption = 'R'#233'initialisation'
+      TabOrder = 3
+      OnClick = Raz_BtClick
+    end
+  end
+end

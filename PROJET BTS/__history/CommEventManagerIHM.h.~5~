@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#ifndef CommEventManagerIHMH
+#define CommEventManagerIHMH
+#include "IHM.h"
+#include "CommEventManager.h"
+
+class CommEventManagerIHM : public CommEventManager
+{
+
+	private:
+
+	IHM * ihm;
+
+	public:
+
+	 void onConnected();
+	 void onDisconnected();
+	 void onError(string errorMessage);
+
+};
+
+//---------------------------------------------------------------------------
+#endif

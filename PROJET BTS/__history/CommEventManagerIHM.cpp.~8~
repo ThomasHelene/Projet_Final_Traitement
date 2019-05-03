@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "CommEventManagerIHM.h"
+#include "IHM.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+	 CommEventManagerIHM::CommEventManagerIHM(TForm1 * ihm)
+	 {
+         this->ihm = ihm;
+     }
+
+	 void CommEventManagerIHM::onConnected()
+	 {
+
+	 }
+
+	 void CommEventManagerIHM::onDisconnected()
+	 {
+
+	 }
+
+	 void CommEventManagerIHM::onError(string errorMessage)
+	 {
+
+     }
