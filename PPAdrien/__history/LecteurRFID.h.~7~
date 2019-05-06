@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#include "ufCoder.h"
+#include "Windows.h"
+#ifndef LecteurRFIDH
+#define LecteurRFIDH
+//---------------------------------------------------------------------------
+#endif
+
+
+
+class LecteurRFID {
+
+public :
+String yolo;
+		 LecteurRFID();
+		 ~LecteurRFID();
+		 void Ouverture();
+		 int Lecture();
+
+};

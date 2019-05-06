@@ -1,0 +1,19 @@
+//---------------------------------------------------------------------------
+
+#include "ufCoder.h"
+#ifndef LecteurRFIDH
+#define LecteurRFIDH
+//---------------------------------------------------------------------------
+#endif
+
+
+
+class LecteurRFID {
+
+public :
+		 LecteurRFID();
+		 ~LecteurRFID();
+		 void Ouverture();
+		 int Lecture();
+
+};

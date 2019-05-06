@@ -14,6 +14,8 @@ __fastcall TInterface::TInterface(TComponent* Owner)
 	: TForm(Owner)
 {
 	Sql_1 = new Sql();
+
+    lecteur = LecteurRFID();
 	client = new TIdTCPClient();
 }
 //---------------------------------------------------------------------------

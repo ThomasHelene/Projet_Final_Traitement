@@ -22,6 +22,13 @@ object Interface: TInterface
     Brush.Color = clRed
     Shape = stCircle
   end
+  object Label1: TLabel
+    Left = 280
+    Top = 176
+    Width = 31
+    Height = 13
+    Caption = 'Label1'
+  end
   object txtIdRecette: TEdit
     Left = 17
     Top = 24

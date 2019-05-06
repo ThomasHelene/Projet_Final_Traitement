@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+
+
+	   LecteurRFID::LecteurRFID()
+	   {
+
+	   }
+
+	   LecteurRFID::~LecteurRFID()
+	   {
+
+	   }
+	   void LecteurRFID::Ouverture()
+	   {
+               ReaderOpen();
+	   }
+
+	   int LecteurRFID::Lecture()
+	   {
+
+       }
+
+#pragma hdrstop
+
+#include "LecteurRFID.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)

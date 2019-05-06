@@ -8,6 +8,7 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include "sql.h"
+#include "LecteurRFID.h"
 #include <IdBaseComponent.hpp>
 #include <IdComponent.hpp>
 #include <IdContext.hpp>
@@ -23,6 +24,7 @@ __published:	// Composants gérés par l'EDI
 	TEdit *txtIdRecette;
 	TButton *BddConnect_Bt;
 	TShape *EtatBdd;
+	TLabel *Label1;
 	void __fastcall BddConnect_BtClick(TObject *Sender);
 	void __fastcall ServerConnect(TIdContext *AContext);
 	void __fastcall ServerExecute(TIdContext *AContext);
@@ -32,6 +34,7 @@ private:	// Déclarations utilisateur
 public:		// Déclarations utilisateur
 	__fastcall TInterface(TComponent* Owner);
 	 Sql* Sql_1;
+	 LecteurRFID * lecteur;
 	 TIdTCPClient * client;
 };
 //---------------------------------------------------------------------------
