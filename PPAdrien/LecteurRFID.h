@@ -16,6 +16,6 @@ String yolo;
 		 LecteurRFID();
 		 ~LecteurRFID();
 		 void Ouverture();
-		 int Lecture();
+		 AnsiString Lecture();
 
 };

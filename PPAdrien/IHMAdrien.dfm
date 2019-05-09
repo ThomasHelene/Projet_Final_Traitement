@@ -46,4 +46,10 @@ object Interface: TInterface
     TabOrder = 1
     OnClick = BddConnect_BtClick
   end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 216
+    Top = 24
+  end
 end

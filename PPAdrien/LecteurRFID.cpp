@@ -37,7 +37,45 @@
                 }
 	   }
 
-	   int LecteurRFID::Lecture()
+	   AnsiString  LecteurRFID::Lecture()
 	   {
 
-       }
+	unsigned char id_len, i;
+	unsigned char card_id[10];
+	AnsiString card_nr="";
+	bool supported_card;
+	unsigned char old_card_type;
+	unsigned char card_type;
+        if(GetDlogicCardType(&card_type))                      // pas de carte devant le lecteur
+	{
+
+		return NULL;
+	}
+
+// lecture de la carte
+	else if(card_type == DL_MIFARE_CLASSIC_1K)       // format de la carte (1K classic) avec l'heure de passage
+	{
+
+		supported_card = FALSE;
+	}
+
+	if(GetCardIdEx(&old_card_type, card_id,&id_len))       //Probl�me d'ID
+	{
+
+		return NULL;
+	}
+
+		if(id_len == 7)
+		card_nr.sprintf("%02X%02X%02X%02X%02X%02X%02X", card_id[0], card_id[1], card_id[2],
+						card_id[3], card_id[4], card_id[5], card_id[6]);
+	else
+		card_nr.sprintf("%02X%02X%02X%02X", card_id[0], card_id[1], card_id[2],
+
+						card_id[3]);
+
+		return card_nr;
+	}
+
+
+
+

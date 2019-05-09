@@ -25,9 +25,11 @@ __published:	// Composants gérés par l'EDI
 	TButton *BddConnect_Bt;
 	TShape *EtatBdd;
 	TLabel *Label1;
+	TTimer *Timer1;
 	void __fastcall BddConnect_BtClick(TObject *Sender);
 	void __fastcall ServerConnect(TIdContext *AContext);
 	void __fastcall ServerExecute(TIdContext *AContext);
+	void __fastcall Timer1Timer(TObject *Sender);
 
 private:	// Déclarations utilisateur
 

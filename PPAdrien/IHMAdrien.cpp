@@ -15,8 +15,11 @@ __fastcall TInterface::TInterface(TComponent* Owner)
 {
 	Sql_1 = new Sql();
 
-    lecteur = LecteurRFID();
+	lecteur = new LecteurRFID();
 	client = new TIdTCPClient();
+	 lecteur->Ouverture();
+
+
 }
 //---------------------------------------------------------------------------
 void __fastcall TInterface::BddConnect_BtClick(TObject *Sender)
@@ -87,6 +90,13 @@ int i;
 void __fastcall TInterface::ServerExecute(TIdContext *AContext)
 {
 	//ServerInfos->Lines->Add("Le serveur a reçu");
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TInterface::Timer1Timer(TObject *Sender)
+{
+	Label1->Caption=lecteur->Lecture();
 }
 //---------------------------------------------------------------------------
 
