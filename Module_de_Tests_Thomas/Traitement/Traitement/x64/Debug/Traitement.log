@@ -1,6 +1,0 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (ConsoleApplication4.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
-  Ihm.cpp
-c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\traitement\traitement\ihm.cpp(26): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
-  Traitement.cpp
-c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\traitement\traitement\traitement.cpp(150): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
-  Génération de code en cours...
