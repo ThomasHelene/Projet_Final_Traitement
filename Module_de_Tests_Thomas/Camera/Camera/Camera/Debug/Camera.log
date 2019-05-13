@@ -1,0 +1,5 @@
+﻿  Camera.cpp
+c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\camera\camera\camera\camera.h(2): fatal error C1083: Impossible d'ouvrir le fichier include : 'opencv2/opencv.hpp' : No such file or directory
+  MyForm.cpp
+c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\camera\camera\camera\camera.h(2): fatal error C1083: Impossible d'ouvrir le fichier include : 'opencv2/opencv.hpp' : No such file or directory
+  Génération de code en cours...

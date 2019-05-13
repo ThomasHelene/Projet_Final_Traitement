@@ -1,0 +1,15 @@
+﻿  Camera1.cpp
+c:\opencv\build\include\opencv2\core\cuda.inl.hpp(105): warning C4793: 'cv::cuda::GpuMat::GpuMat' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+c:\opencv\build\include\opencv2\core\cuda.inl.hpp(395): warning C4793: 'cv::cuda::HostMem::HostMem' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+c:\opencv\build\include\opencv2\core\mat.inl.hpp(530): warning C4793: 'cv::Mat::Mat' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+c:\opencv\build\include\opencv2\core\mat.inl.hpp(850): warning C4793: 'cv::Mat::release' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+c:\opencv\build\include\opencv2\core\mat.inl.hpp(2171): warning C4793: 'cv::SparseMat::addref' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+c:\opencv\build\include\opencv2\core\mat.inl.hpp(3771): warning C4793: 'cv::UMat::addref' : fonction compilée en tant que code natif :
+  	un intrinsèque non pris en charge a été trouvé dans le code managé
+  Camera1.obj : module MSIL détecté ; liens incrémentiels désactivés pour MSIL ; édition de liens complète en cours
+  Camera.vcxproj -> C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Camera\Camera\x64\Debug\Camera.exe

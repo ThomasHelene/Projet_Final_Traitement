@@ -2,11 +2,75 @@
 #include "Traitement.h"
 
 
-Traitement::Traitement(std::string ImageAcq,std::string ImageRef)
+Traitement::Traitement(std::string ImageAcq, std::string ImageRef)
 
 {
-	bool etat=SetImageAcquise(ImageAcq);
-	bool etat2 = SetImageRef(ImageRef);
+	bool etatImageAcq = SetImageAcquise(ImageAcq);
+
+	bool etatImageRef = SetImageRef(ImageRef);
+
+	if (etatImageRef == true)
+	{
+
+	}
+	else
+	{
+		MessageBox(NULL, L"L'Image de Référence n'a pas été Insérée", L"Problème avec l'Image de Référence", 16);
+	}
+
+	if (etatImageAcq == true)
+	{
+
+	}
+	{
+		MessageBox(NULL, L"L'Image Acquise n'a pas été Insérée", L"Problème avec l'Image Acquise", 16);
+	}
+
+	ComparerImages();
+
+
+
+
+
+
+
+
+
+}
+
+
+Traitement::~Traitement()
+{
+}
+bool Traitement::SetImageAcquise(std::string ImageAcq)
+{
+	if (ImageAcq != "")
+	{
+		ImageAcquise = imread(ImageAcq);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+bool Traitement::SetImageRef(std::string ImageRef)
+{
+	if (ImageRef != "")
+	{
+		ImageReference = imread(ImageRef);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+void Traitement::ComparerImages()
+{
 	Mat ImgGriseAcq = ImageAcquise.clone();
 	Mat ImgGriseRef = ImageReference.clone();
 	Mat ImgHsvAcq;
@@ -16,7 +80,7 @@ Traitement::Traitement(std::string ImageAcq,std::string ImageRef)
 	/// Convert to HSV
 	cvtColor(ImgGriseAcq, ImgHsvAcq, COLOR_BGR2HSV);
 	cvtColor(ImgGriseRef, ImgHsvRef, COLOR_BGR2HSV);
-	
+
 
 
 	//// Set histogram bins count
@@ -51,7 +115,7 @@ Traitement::Traitement(std::string ImageAcq,std::string ImageRef)
 
 	const float* ranges[] = { h_ranges, s_ranges };
 	int channels[] = { 0, 1 };
-	Mat hist_ref,hist_acq;
+	Mat hist_ref, hist_acq;
 	calcHist(&ImgHsvRef, 1, channels, Mat(), hist_ref, 2, histSize, ranges, true, false);
 	calcHist(&ImgHsvAcq, 1, channels, Mat(), hist_acq, 2, histSize, ranges, true, false);
 	normalize(hist_ref, hist_ref, 0, hist_ref.rows, NORM_MINMAX, -1, Mat());
@@ -63,48 +127,23 @@ Traitement::Traitement(std::string ImageAcq,std::string ImageRef)
 		int compare_method = i;
 		double base_base = compareHist(hist_ref, hist_ref, compare_method);
 		double base_half = compareHist(hist_ref, hist_acq, compare_method);
-		
+
 
 		printf(" Method [%d] Reference, Test, : %f, %f \n", i, base_base, base_half);
 	}
 
 
-	
+
 	namedWindow("REF", WINDOW_AUTOSIZE);
 	imshow("REF", hist_ref);
 
 	namedWindow("ACQ", WINDOW_AUTOSIZE);
 	imshow("ACQ", hist_acq);
 	waitKey();
-
-
-
-
-
-
-
-
-
-
-
+	EtatTraitement = true;
 }
 
-
-Traitement::~Traitement()
+bool Traitement::GetEtatTraitement()
 {
-}
-bool Traitement::SetImageAcquise(std::string ImageAcq)
-{
-	ImageAcquise = imread(ImageAcq);
-	return true;
-}
-bool Traitement::SetImageRef(std::string ImageRef)
-{
-	ImageReference = imread(ImageRef);
-	return true;
-}
-
-bool Traitement::ComparerImages()
-{
-	return true;
+	return EtatTraitement;
 }
