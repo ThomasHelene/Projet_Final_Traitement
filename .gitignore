@@ -4,3 +4,9 @@ Module_de_Tests_Thomas/Camera/Camera/Camera/x64/Debug/Camera.tlog/link.command.1
 *.tlog
 *.log
 *.obj
+*.lastbuildstate
+*.tlog
+*.ipch
+*.vcxproj
+*.db
+Module_de_Tests_Thomas/Camera/Camera/.vs/Camera/v15/.suo
