@@ -123,15 +123,16 @@ void Traitement::ComparerImages()
 	normalize(hist_ref, hist_ref, 0, hist_ref.rows, NORM_MINMAX, -1, Mat());
 	normalize(hist_acq, hist_acq, 0, hist_acq.rows, NORM_MINMAX, -1, Mat());
 
+	printf("Affichage des Résultats \n");
 	/// Apply the histogram comparison methods
 	for (int i = 0; i < 4; i++)
 	{
 		int compare_method = i;
-		double base_base = compareHist(hist_ref, hist_ref, compare_method);
-		double base_half = compareHist(hist_ref, hist_acq, compare_method);
+		ResultatsRef.push_back(compareHist(hist_ref, hist_ref, compare_method));
+		ResultatsAcq.push_back(compareHist(hist_ref, hist_acq, compare_method));
 
 
-		printf(" Method [%d] Reference, Test, : %f, %f \n", i, base_base, base_half);
+		
 	}
 
 
@@ -141,11 +142,19 @@ void Traitement::ComparerImages()
 
 	namedWindow("ACQ", WINDOW_AUTOSIZE);
 	imshow("ACQ", hist_acq);
-	waitKey();
+	//waitKey();
 	EtatTraitement = true;
 }
 
 bool Traitement::GetEtatTraitement()
 {
 	return EtatTraitement;
+}
+std::vector <double> Traitement::GetResultatsRef()
+{
+	return ResultatsRef;
+}
+std::vector <double> Traitement::GetResultatsAcq()
+{
+	return ResultatsAcq;
 }

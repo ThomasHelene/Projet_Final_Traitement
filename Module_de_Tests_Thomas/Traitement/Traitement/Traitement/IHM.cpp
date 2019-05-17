@@ -7,8 +7,18 @@
 
 int main()
 {
+	int i;
 	Traitement * Traitement1;
-	Traitement1 = new Traitement("E:\\clee1.jpg", "E:\\clee1test.jpg");
+	Traitement1 = new Traitement("C:\\exemple.jpg", "C:\\exemple.jpg");
+	std::vector <double> Resultat1;
+	std::vector <double> Resultat2;
+	Resultat1 = Traitement1->GetResultatsRef();
+	Resultat2 = Traitement1->GetResultatsAcq();
+	for (i = 0; i < 4; i++)
+	{
+		printf("Methode [%i], %f,%f \n", i, Resultat1[i], Resultat2[i]);
+	}
+	waitKey();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

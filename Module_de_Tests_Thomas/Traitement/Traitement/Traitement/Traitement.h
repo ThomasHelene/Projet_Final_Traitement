@@ -13,6 +13,8 @@ public:
 private:
 	Mat ImageReference;
 	Mat ImageAcquise;
+	std::vector <double> ResultatsRef;
+	std::vector <double> ResultatsAcq;
 	bool SetImageRef(std::string ImageRef);
 	bool SetImageAcquise(std::string ImageAcq);
 	void ComparerImages();
@@ -21,7 +23,8 @@ public:
 	Traitement(std::string ImageAcq, std::string ImageRef);
 	~Traitement();
 	bool GetEtatTraitement();
-
+	std::vector <double> GetResultatsRef();
+	std::vector <double> GetResultatsAcq();
 
 };
 
