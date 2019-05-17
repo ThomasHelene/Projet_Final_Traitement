@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Notifier", "Notifier\Notifier.vcxproj", "{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Debug|x64.ActiveCfg = Debug|x64
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Debug|x64.Build.0 = Debug|x64
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Debug|x86.ActiveCfg = Debug|Win32
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Debug|x86.Build.0 = Debug|Win32
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Release|x64.ActiveCfg = Release|x64
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Release|x64.Build.0 = Release|x64
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Release|x86.ActiveCfg = Release|Win32
+		{4912DF8A-FF1A-40FD-8A8D-5A5B7BA86757}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBB24D7D-9206-4FD1-93B4-02B1E44FBB49}
+	EndGlobalSection
+EndGlobal
