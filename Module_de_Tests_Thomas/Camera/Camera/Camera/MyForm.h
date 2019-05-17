@@ -37,6 +37,9 @@ namespace Camera {
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Label^  label3;
 	protected:
 
 	private:
@@ -55,11 +58,14 @@ namespace Camera {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(115, 132);
+			this->button1->Location = System::Drawing::Point(116, 149);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(203, 41);
 			this->button1->TabIndex = 0;
@@ -70,7 +76,7 @@ namespace Camera {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(136, 25);
+			this->label1->Location = System::Drawing::Point(126, 116);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(182, 13);
 			this->label1->TabIndex = 2;
@@ -83,11 +89,40 @@ namespace Camera {
 			this->saveFileDialog1->Title = L"Enregistrer Image Acquise";
 			this->saveFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &MyForm::saveFileDialog1_FileOk);
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(299, 30);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(121, 13);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Etat de la prise D\'image:";
+			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::DarkRed;
+			this->panel1->Location = System::Drawing::Point(426, 12);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(45, 44);
+			this->panel1->TabIndex = 4;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(158, 238);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(0, 13);
+			this->label3->TabIndex = 5;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(473, 293);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
@@ -103,13 +138,37 @@ namespace Camera {
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+
+
+
 	private: System::Void saveFileDialog1_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) 
 	{
 	
+		// Instanciation de l'objet Caméra
+		Camera1 *cam;
+		cam = new Camera1(msclr::interop::marshal_as<std::string>(saveFileDialog1->FileName));
 		
-		Camera1 *test;
-		test = new Camera1(msclr::interop::marshal_as<std::string>(saveFileDialog1->FileName));
-		delete test;
+		// On Vérifie que l'image a bien été prise
+		bool etat = cam->IsimagePrise();
+		
+		// SI c'est le cas , on récupère l'image et on mets à jour l'IHM
+		if (etat == true)
+		{
+			panel1->BackColor = Color::DarkGreen;
+			std::string ImageAcquise;
+			ImageAcquise=cam->GetImagePrise();
+			String^ ImageAcq = gcnew String(ImageAcquise.c_str());
+			label3->Text = ImageAcq;
+		}
+		// Destruction de l'objet
+		delete cam;
 	}
-	};
+
+
+
+
+
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+};
 }

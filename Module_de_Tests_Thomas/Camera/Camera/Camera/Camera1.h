@@ -2,12 +2,14 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <Windows.h>
+#pragma comment(lib,"User32.lib")
 
 class Camera1
 {
 
-	cv::Mat img;
-	cv::VideoCapture avc;
+	cv::Mat frame;
+	cv::VideoCapture flux;
+
 	bool etat;
 	std::string ImagePrise;
 

@@ -6,9 +6,9 @@ using namespace cv;
 
 Camera1::Camera1(std::string DestImage)
 {
-	etat = false;
+	etat = false; // Etat de l'image prise réglée par défaut à false
 	Connexion();
-	if (avc.isOpened())
+	if (flux.isOpened()) // Vérifie si le flux vidéo a bien été ouvert
 	{
 		PrendrePhoto(DestImage);
 	}
@@ -18,25 +18,21 @@ Camera1::Camera1(std::string DestImage)
 	}
 
 }
-
-
 Camera1::~Camera1()
 {
-	avc.release();
+	flux.release();
 	cv::destroyAllWindows();
 }
-
-
 void Camera1::Connexion()
 {
-	avc.open(0);
+	flux.open(0); // Ouvre le flux vidéo de la caméra
 }
 void Camera1::PrendrePhoto(std::string DestImage)
 {
-	avc >> img;
-	imwrite(DestImage, img);
-	etat = true;
-	ImagePrise = DestImage;
+	flux >> frame;
+	imwrite(DestImage, frame); // Permet d'enregistrer l'image à l'endroit voulu
+	etat = true; // Etat de l'image prise est du coup réglée à true
+	ImagePrise = DestImage; 
 }
 bool Camera1::IsimagePrise()
 {
