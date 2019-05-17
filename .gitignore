@@ -10,3 +10,9 @@ Module_de_Tests_Thomas/Camera/Camera/Camera/x64/Debug/Camera.tlog/link.command.1
 *.vcxproj
 *.db
 Module_de_Tests_Thomas/Camera/Camera/.vs/Camera/v15/.suo
+*.exe
+*.pdb
+*.pdb
+*.obj
+*.cache
+*.tlog
