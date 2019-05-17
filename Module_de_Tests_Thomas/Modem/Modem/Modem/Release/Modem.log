@@ -1,14 +1,7 @@
-﻿  IHMModem.cpp
-c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(18): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
-  c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(18): note: les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
-c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(19): warning C4473: 'scanf_s' : nombre insuffisant d'arguments passés pour la chaîne de format
-  c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(19): note: les espaces réservés et leurs paramètres attendent des arguments 2 variadiques, mais des arguments 1 ont été fournis
-  c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(19): note: l'argument variadique manquant 2 est demandé par la chaîne de format '%s'
-  c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(19): note: cet argument est utilisé comme taille de mémoire tampon
-c:\users\thelene\documents\github\projet_final_traitement\module_de_tests_thomas\modem\modem\modem\ihmmodem.cpp(22): warning C4018: '<' : incompatibilité signed/unsigned
+﻿  Modem.cpp
   Génération de code en cours
-  1 of 90 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+  2 of 90 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  Modem.vcxproj -> C:\Users\Thelene\Documents\GitHub\Projet_Final_Traitement\Module_de_Tests_Thomas\Modem\Modem\Release\Modem.exe
+  Modem.vcxproj -> E:\Github\Projet_Final_Traitement\Module_de_Tests_Thomas\Modem\Modem\Release\Modem.exe

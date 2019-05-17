@@ -10,7 +10,7 @@ Auteur ...... : Thomas Hélène
 #include "Modem.h"
 
 // Execute l'Intégralité de la Fonctionnalité
-Modem::Modem(std::string Texte,std::string Numero)
+Modem::Modem(std::string Texte,std::string Numero, std::string CodeSim)
 {
 	// Préparation du Handle pour la communication avec le Modem GSM
 	hComm = CreateFile(L"COM1",GENERIC_READ | GENERIC_WRITE,0,

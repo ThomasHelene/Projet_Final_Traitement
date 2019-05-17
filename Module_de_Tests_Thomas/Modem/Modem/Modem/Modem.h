@@ -24,7 +24,7 @@ private:
 	bool Initialisation(std::string CodeSim);
 	void Rapport(std::string Rapport,std::string Numero);
 public:
-	Modem(std::string Texte,std::string Numero);
+	Modem(std::string Texte,std::string Numero, std::string CodeSim);
 	bool GetEtatRapport();
 	~Modem();
 };

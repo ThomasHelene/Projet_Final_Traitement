@@ -15,7 +15,7 @@ int main()
 	char numero[100];
 	int i;
 
-	printf("Entrez un numero valide", numero);
+	printf("Entrez un numero valide \n ", numero);
 	scanf_s("%s", &numero);
 
 	char numero1[100];
@@ -25,7 +25,7 @@ int main()
 	numero1[i] = '\0';
 	printf("%s \n", numero1);
 	
-	Modem test("exemple",numero1);
+	Modem test("exemple",numero1,"0000");
 	if (test.GetEtatRapport() == true)
 	{
 		printf("Message Envoyé . Vous pouvez fermer cette fenêtre \n\r");
