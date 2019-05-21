@@ -15,10 +15,10 @@ private:
 	Mat ImageAcquise;
 	std::vector <double> ResultatsRef;
 	std::vector <double> ResultatsAcq;
+	bool EtatTraitement;
 	bool SetImageRef(std::string ImageRef);
 	bool SetImageAcquise(std::string ImageAcq);
 	void ComparerImages();
-	bool EtatTraitement;
 public:
 	Traitement(std::string ImageAcq, std::string ImageRef);
 	~Traitement();
