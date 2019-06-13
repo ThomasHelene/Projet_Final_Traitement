@@ -4,13 +4,22 @@
 
 using namespace cv;
 
-Camera1::Camera1(std::string DestImage)
+Camera1::Camera1(std::string DestImage,int type)
 {
-	etat = false; // Etat de l'image prise réglée par défaut à false
+	etatAcq = false; // Etat de l'image prise réglée par défaut à false
+	etatRef = false;
 	Connexion();
 	if (flux.isOpened()) // Vérifie si le flux vidéo a bien été ouvert
 	{
-		PrendrePhoto(DestImage);
+		if (type == 1)
+		{
+			PrendrePhoto(DestImage);
+		}
+		if (type == 2)
+		{
+			AcquerirReference(DestImage);
+		}
+		
 	}
 	else
 	{
@@ -31,16 +40,30 @@ void Camera1::PrendrePhoto(std::string DestImage)
 {
 	flux >> frame;
 	imwrite(DestImage, frame); // Permet d'enregistrer l'image à l'endroit voulu
-	etat = true; // Etat de l'image prise est du coup réglée à true
+	etatAcq = true; // Etat de l'image prise est du coup réglée à true
 	ImagePrise = DestImage; 
+}
+void Camera1::AcquerirReference(std::string DestImage)
+{
+	flux >> frame;
+	imwrite(DestImage, frame); // Permet d'enregistrer l'image à l'endroit voulu
+	etatRef = true; // Etat de l'image prise est du coup réglée à true
+	ImagePriseRef = DestImage;
 }
 bool Camera1::IsimagePrise()
 {
-	return etat;
+	return etatAcq;
 }
 std::string Camera1::GetImagePrise()
 {
 	return ImagePrise;
 }
 
-
+bool Camera1::IsimageRefPrise()
+{
+	return etatRef;
+}
+std::string Camera1::GetImageRefPrise()
+{
+	return ImagePriseRef;
+}

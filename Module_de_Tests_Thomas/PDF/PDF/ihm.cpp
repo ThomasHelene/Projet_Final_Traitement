@@ -3,10 +3,9 @@
 
 #include "pch.h"
 #include <iostream>
+
+
 #include "PDF.h"
-
-
-
 
 int main()
 {
@@ -21,7 +20,8 @@ int main()
 	}
 	else
 	{
-		MessageBox(NULL, L"Erreur, le fichier PDF n'as pas été créer !", L"Erreur Programme", 0x00000030L);
+		MessageBox(NULL, L"Erreur, le fichier PDF n'as pas été créer !"
+			, L"Erreur Programme", 0x00000030L);
 	}
 }
 

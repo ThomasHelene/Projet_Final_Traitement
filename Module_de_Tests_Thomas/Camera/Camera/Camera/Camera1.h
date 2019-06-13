@@ -10,18 +10,20 @@ class Camera1
 	cv::Mat frame;
 	cv::VideoCapture flux;
 
-	bool etat;
+	bool etatAcq,etatRef;
 	std::string ImagePrise;
-
+	std::string ImagePriseRef;
 
 	void Connexion();
 	void PrendrePhoto(std::string DestImage);
 
 public:
-	Camera1(std::string DestImage);
+	Camera1(std::string DestImage, int type);
 	~Camera1();
 	bool IsimagePrise();
 	std::string GetImagePrise();
-
+	void AcquerirReference(std::string DestImage);
+		bool IsimageRefPrise();
+		std::string GetImageRefPrise();
 };
 

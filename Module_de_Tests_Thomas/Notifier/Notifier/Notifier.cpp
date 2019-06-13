@@ -20,18 +20,18 @@ void Notifier::GenererPDF(std::wstring ImageAcq)
 {
 	pdf = new PDF(ImageAcq);
 	
-	EtatPdf= pdf->getEtat();
+	this->EtatPdf= pdf->getEtat();
 }
 void Notifier::EnvoiSms(std::string Rapport, std::string Numero, std::string codeSim)
 {
 	modem = new Modem(Rapport, Numero, codeSim);
 
-	EtatSms= modem->GetEtatRapport();
+	this->EtatSms= modem->GetEtatRapport();
 
 }
 bool Notifier::GetEtatRapports()
 {
-	if (EtatPdf == true && EtatSms == true)
+	if (this->EtatPdf == true && this->EtatSms == true)
 	{
 		Etat = true;
 	}
