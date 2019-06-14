@@ -10,7 +10,6 @@
 #include <iostream>
 #include <string>
 #include "recette.h"
-#include <windows.h>
 #include "./include/mysql.h"
 using namespace std;
 
@@ -18,7 +17,7 @@ class Sql
 {
 	private:
 //	Sql *sql1;
-	 MYSQL *sql;
+	 MYSQL *mySQL;
 
 
 	public:
@@ -31,8 +30,6 @@ class Sql
 	bool OnConnect(string adress, string user,string mdp, string nameBDD);
 	//envoie   d'une requet et forme un objet de type recette
 	Recette GetRecette(int IdRecette);
-	bool CreerRecette(std::string temps1,std::string temps2,std::string temps3,std::string CodeRfid,std::string Nom);
-	bool SupprimerRecette();
 
 
 	void ReConnect();

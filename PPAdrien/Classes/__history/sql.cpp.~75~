@@ -121,8 +121,7 @@
 		requete="INSERT INTO `Recette`(`ID-RFID`,`Nom` ,`Bac n°1`, `Bac n°2`, `Bac n°3`) VALUES (";
 		requete+=RequestResult[0][0]; // id récupérée précédemment
 		requete+=",'";
-		requete+=Nom;
-		requete+="',";
+		requete+=
 		requete+=temps1;
 		requete+=",";
 		requete+=temps2;
@@ -142,5 +141,11 @@
 	}
 	bool Sql::SupprimerRecette()
 	{
+              // on Insère le code RFID en base
+		std::string requete;
+		requete="INSERT INTO `RFID`(`Numero`) VALUES ('";
+		requete+=CodeRfid;
+		requete+="')";
 
+                   int test=mysql_query(this->sql,requete.c_str());
     }

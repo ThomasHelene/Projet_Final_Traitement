@@ -54,9 +54,8 @@
 
 	}
 
-	bool Sql::CreerRecette(std::string temps1,std::string temps2,std::string temps3,std::string CodeRfid,std::string Nom)
+	bool Sql::CreerRecette(std::string temps1,std::string temps2,std::string temps3,std::string CodeRfid)
 	{
-        // on Insère le code RFID en base
 		std::string requete;
 		requete="INSERT INTO `RFID`(`Numero`) VALUES ('";
 		requete+=CodeRfid;
@@ -64,10 +63,6 @@
 
                    int test=mysql_query(this->sql,requete.c_str());
 
-
-
-
-        // On récupère l'id correspondant au code RFID qu'on a rentré
 		 std::string request;
 		 request="SELECT `id` FROM `RFID` WHERE `Numero`='";
 		 request+=CodeRfid;
@@ -116,13 +111,11 @@
 
 
 
-        // On insère la recette
 
-		requete="INSERT INTO `Recette`(`ID-RFID`,`Nom` ,`Bac n°1`, `Bac n°2`, `Bac n°3`) VALUES (";
-		requete+=RequestResult[0][0]; // id récupérée précédemment
-		requete+=",'";
-		requete+=Nom;
-		requete+="',";
+
+		requete="INSERT INTO `Recette`(`ID-RFID`, `Bac n°1`, `Bac n°2`, `Bac n°3`) VALUES (";
+		requete+=RequestResult[0][0];
+		requete+=",";
 		requete+=temps1;
 		requete+=",";
 		requete+=temps2;

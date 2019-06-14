@@ -142,5 +142,11 @@
 	}
 	bool Sql::SupprimerRecette()
 	{
+              // on Insère le code RFID en base
+		std::string requete;
+		requete="INSERT INTO `RFID`(`Numero`) VALUES ('";
+		requete+=CodeRfid;
+		requete+="')";
 
+                   int test=mysql_query(this->sql,requete.c_str());
     }
