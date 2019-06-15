@@ -9,7 +9,7 @@ int main()
 {
 	int i;
 	Traitement * Traitement1;
-	Traitement1 = new Traitement("C:\\exemple.jpg", "C:\\exemple.jpg");
+	Traitement1 = new Traitement("E:\\ImageReference.jpg", "E:\\ImageAquise.jpg");
 	std::vector <double> Resultat1;
 	std::vector <double> Resultat2;
 	Resultat1 = Traitement1->GetResultatsRef();

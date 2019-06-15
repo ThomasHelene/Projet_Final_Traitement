@@ -8,16 +8,16 @@
 int main()
 {
 	Notifier * notif;
-	notif = new Notifier("Exemple", L"C:\\exemple.jpg", "686055287", "0000");
+	notif = new Notifier("Exemple", L"C:\\image.jpg", "673786380", "0000");
 
 	if (notif->GetEtatRapports())
 	{
 		
-		_putws(L"Les Rapports n'ont pas ete envoye");
+		_putws(L"Les Rapports ont bien ete envoye");
 	}
 	else
 	{
-		_putws(L"Les Rapports ont bien ete envoyes");
+		_putws(L"Les Rapports n'ont pas ete envoyes");
 	}
 
 	delete notif;
