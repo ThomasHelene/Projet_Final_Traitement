@@ -7,7 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "sql.h"
+#include "./Classes/sql.h"
 #include "LecteurRFID.h"
 #include <IdBaseComponent.hpp>
 #include <IdComponent.hpp>
@@ -26,10 +26,21 @@ __published:	// Composants gérés par l'EDI
 	TShape *EtatBdd;
 	TLabel *Label1;
 	TTimer *Timer1;
+	TEdit *EdtTps1;
+	TEdit *EdtTps2;
+	TEdit *EdtTps3;
+	TLabel *LblCreer;
+	TButton *BtnCreer;
+	TButton *BtnCreation;
+	TEdit *EdtNom;
+	TLabel *LblNom;
 	void __fastcall BddConnect_BtClick(TObject *Sender);
 	void __fastcall ServerConnect(TIdContext *AContext);
 	void __fastcall ServerExecute(TIdContext *AContext);
 	void __fastcall Timer1Timer(TObject *Sender);
+	void __fastcall BtnCreerClick(TObject *Sender);
+	void __fastcall BtnCreationClick(TObject *Sender);
+
 
 private:	// Déclarations utilisateur
 

@@ -1,0 +1,133 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "IHMAdrien.h"
+#include "sql.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TInterface *Interface;
+//---------------------------------------------------------------------------
+__fastcall TInterface::TInterface(TComponent* Owner)
+	: TForm(Owner)
+{
+	Sql_1 = new Sql();
+
+	lecteur = new LecteurRFID();
+	client = new TIdTCPClient();
+	 lecteur->Ouverture();
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TInterface::BddConnect_BtClick(TObject *Sender)
+{
+	// si la connexion se passe bien
+	if(Sql_1->OnConnect("192.168.65.113","adrien","root","Projet_Traitement") == true){
+		EtatBdd->Brush->Color = clLime;
+        BtnCreation->Visible=true;
+	}else
+	{
+		EtatBdd->Brush->Color = clRed;
+
+	}
+
+
+}
+
+void __fastcall TInterface::ServerConnect(TIdContext *AContext)
+{
+String requete="DIO";
+int i;
+
+//ServerInfos->Lines->Add("Serveur connecté!");
+//ServerInfos->Lines->Add("L'addresse ip du client est :");
+//ServerInfos->Lines->Add(AContext->Binding->PeerIP);
+//ServerInfos->Lines->Add("L'addresse du port du client est :");
+//ServerInfos->Lines->Add(AContext->Binding->PeerPort);
+//	if(i==0)
+//	{
+//	 client->Host="192.168.64.124";
+//			client->Port=60100;
+//			client->Connect();
+//	}
+//while(AContext->Connection->Socket->Connected()==true)
+//{
+//requete=AContext->Connection->Socket->ReadLn();
+//ServerInfos->Lines->Add(requete);
+
+
+//	if(requete=="Cloche1")                     //Si la requete envoyé est cloche1 on active la petite cloche
+//	{
+//
+//		unsigned char msg= 0x08;
+//		trame->activation(msg,client);
+//		trame->retourMarteau(client);
+//
+//	}
+//	if(requete=="Cloche2")
+//	{
+//
+//
+//		unsigned char msg=0x04;
+//		trame->activation(msg,client);
+//		trame->retourMarteau(client);
+//
+//	}
+
+//	  i=1;
+//	  }
+//
+//
+//	AContext->Connection->IOHandler->WriteLn("Terminé");
+//	AContext->Connection->Disconnect();
+//	i=0;
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TInterface::ServerExecute(TIdContext *AContext)
+{
+	//ServerInfos->Lines->Add("Le serveur a reçu");
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TInterface::Timer1Timer(TObject *Sender)
+{
+	Label1->Caption=lecteur->Lecture();
+}
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TInterface::BtnCreerClick(TObject *Sender)
+{
+	AnsiString temps1(EdtTps1->Text);
+	AnsiString temps2(EdtTps2->Text);
+	AnsiString temps3(EdtTps3->Text);
+	Sql_1->CreerRecette(temps1.c_str(),temps2.c_str(),temps3.c_str(),"test");
+
+	 EdtTps1->Visible=false;
+	 EdtTps2->Visible=false;
+	 EdtTps3->Visible=false;
+	 LblCreer->Visible=false;
+	 BtnCreer->Visible=false;
+     LblNom->Visible=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TInterface::BtnCreationClick(TObject *Sender)
+{
+BtnCreer->Visible=true;
+EdtTps1->Visible=true;
+EdtTps2->Visible=true;
+EdtTps3->Visible=true;
+LblCreer->Visible=true;
+LblNom->Visible=true;
+}
+//---------------------------------------------------------------------------
+

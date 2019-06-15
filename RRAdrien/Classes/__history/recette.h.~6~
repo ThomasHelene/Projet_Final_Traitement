@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+#ifndef recetteH
+#define recetteH
+#include <vector>
+#include <string>
+
+class Recette
+{
+	private:
+			std::string temp1;
+			std::string temp2;
+			std::string temp3;
+			int id;
+			int nomRecette;
+
+
+
+	public:
+
+	Recette();
+	~Recette();
+	 Recette(int temp1Base,int temp2Base,int temp3Base,int id);
+
+
+};
+//---------------------------------------------------------------------------
+#endif

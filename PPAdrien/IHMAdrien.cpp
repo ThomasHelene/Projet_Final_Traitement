@@ -25,8 +25,9 @@ __fastcall TInterface::TInterface(TComponent* Owner)
 void __fastcall TInterface::BddConnect_BtClick(TObject *Sender)
 {
 	// si la connexion se passe bien
-	if(Sql_1->OnConnect("192.168.64.111","pharma","pharma","traitement") == true){
+	if(Sql_1->OnConnect("192.168.65.113","adrien","root","Projet_Traitement") == true){
 		EtatBdd->Brush->Color = clLime;
+        BtnCreation->Visible=true;
 	}else
 	{
 		EtatBdd->Brush->Color = clRed;
@@ -97,6 +98,39 @@ void __fastcall TInterface::ServerExecute(TIdContext *AContext)
 void __fastcall TInterface::Timer1Timer(TObject *Sender)
 {
 	Label1->Caption=lecteur->Lecture();
+}
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TInterface::BtnCreerClick(TObject *Sender)
+{
+	AnsiString temps1(EdtTps1->Text);
+	AnsiString temps2(EdtTps2->Text);
+	AnsiString temps3(EdtTps3->Text);
+    AnsiString Nom(EdtNom->Text);
+	Sql_1->CreerRecette(temps1.c_str(),temps2.c_str(),temps3.c_str(),"test",Nom.c_str());
+
+	 EdtTps1->Visible=false;
+	 EdtTps2->Visible=false;
+	 EdtTps3->Visible=false;
+	 LblCreer->Visible=false;
+	 BtnCreer->Visible=false;
+	 LblNom->Visible=false;
+     EdtNom->Visible=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TInterface::BtnCreationClick(TObject *Sender)
+{
+BtnCreer->Visible=true;
+EdtTps1->Visible=true;
+EdtTps2->Visible=true;
+EdtTps3->Visible=true;
+LblCreer->Visible=true;
+LblNom->Visible=true;
+EdtNom->Visible=true;
 }
 //---------------------------------------------------------------------------
 

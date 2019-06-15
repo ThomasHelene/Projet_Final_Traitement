@@ -23,11 +23,27 @@ object Interface: TInterface
     Shape = stCircle
   end
   object Label1: TLabel
-    Left = 280
-    Top = 176
+    Left = 560
+    Top = 136
     Width = 31
     Height = 13
     Caption = 'Label1'
+  end
+  object LblCreer: TLabel
+    Left = 88
+    Top = 133
+    Width = 225
+    Height = 13
+    Caption = 'Ins'#233'rez les temps voulus pour chacun des Bacs'
+    Visible = False
+  end
+  object LblNom: TLabel
+    Left = 170
+    Top = 87
+    Width = 73
+    Height = 13
+    Caption = 'Rentrez le Nom'
+    Visible = False
   end
   object txtIdRecette: TEdit
     Left = 17
@@ -46,8 +62,62 @@ object Interface: TInterface
     TabOrder = 1
     OnClick = BddConnect_BtClick
   end
+  object EdtTps1: TEdit
+    Left = 72
+    Top = 152
+    Width = 58
+    Height = 21
+    TabOrder = 2
+    Text = '1'
+    Visible = False
+  end
+  object EdtTps2: TEdit
+    Left = 161
+    Top = 152
+    Width = 58
+    Height = 21
+    TabOrder = 3
+    Text = '4'
+    Visible = False
+  end
+  object EdtTps3: TEdit
+    Left = 240
+    Top = 152
+    Width = 58
+    Height = 21
+    TabOrder = 4
+    Text = '5'
+    Visible = False
+  end
+  object BtnCreer: TButton
+    Left = 161
+    Top = 192
+    Width = 88
+    Height = 25
+    Caption = 'Creer la Recette'
+    TabOrder = 5
+    Visible = False
+    OnClick = BtnCreerClick
+  end
+  object BtnCreation: TButton
+    Left = 416
+    Top = 33
+    Width = 99
+    Height = 32
+    Caption = 'Creer une recette?'
+    TabOrder = 6
+    OnClick = BtnCreationClick
+  end
+  object EdtNom: TEdit
+    Left = 170
+    Top = 106
+    Width = 87
+    Height = 21
+    TabOrder = 7
+    Text = 'Chromage'
+    Visible = False
+  end
   object Timer1: TTimer
-    Enabled = False
     OnTimer = Timer1Timer
     Left = 216
     Top = 24
