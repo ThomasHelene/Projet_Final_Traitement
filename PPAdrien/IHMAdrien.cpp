@@ -24,23 +24,15 @@ __fastcall TInterface::TInterface(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TInterface::BddConnect_BtClick(TObject *Sender)
 {
-	// si la connexion se passe bien
-	if(Sql_1->OnConnect("192.168.65.113","adrien","root","Projet_Traitement") == true){
-		EtatBdd->Brush->Color = clLime;
-        BtnCreation->Visible=true;
-	}else
-	{
-		EtatBdd->Brush->Color = clRed;
-
-	}
-
+if(Sql_1->OnConnect("192.168.65.64","adrien","root","Projet_Traitement"))
+{
+    EtatBdd->Brush->Color=clLime;
+}
 
 }
 
 void __fastcall TInterface::ServerConnect(TIdContext *AContext)
 {
-String requete="DIO";
-int i;
 
 //ServerInfos->Lines->Add("Serveur connecté!");
 //ServerInfos->Lines->Add("L'addresse ip du client est :");

@@ -1,0 +1,156 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+sql = new Sql();
+
+
+
+
+
+	   Tableau->Cells[0][0]="ID-Recette";
+	   Tableau->Cells[1][0]="Numéro-Rfid";
+	   Tableau->Cells[2][0]="Nom-Recette";
+	   Tableau->Cells[3][0]="Temps Bac 1";
+	   Tableau->Cells[4][0]="Temps Bac 2";
+	   Tableau->Cells[5][0]="Temps Bac 3";
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+
+
+
+recette donnees;
+AnsiString nom;
+nom=ComboBox1->Text;
+donnees=sql->GetRecette(nom.c_str());
+Tableau->Cells[0][1]=donnees.idRecette;
+	   Tableau->Cells[1][1]=donnees.RFID.c_str();
+	   Tableau->Cells[2][1]=donnees.nom.c_str();
+	   Tableau->Cells[3][1]=donnees.t1;
+	   Tableau->Cells[4][1]=donnees.t2;
+	   Tableau->Cells[5][1]=donnees.t3;
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+  if(sql->OnConnect("192.168.65.64","adrien","root","Projet_Traitement"))
+	  {
+		  Shape1->Brush->Color=clLime;
+	  }
+		   std::vector< std::vector<string> > Resultat;
+Resultat=sql->GetNomRecettes();
+int i=0;
+
+		while(i<Resultat.size())
+		{
+			ComboBox1->Items->Add(Resultat[i][0].c_str()) ;
+			i++;
+		}
+		Button1->Visible=true;
+		Tableau->Visible=true;
+		ComboBox1->Visible=true;
+		Button3->Visible=true;
+        Button4->Visible=true;
+        Button2->Visible=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+    delete sql;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+    AnsiString nom =ComboBox1->Text;
+	sql->SupprimerRecette(nom.c_str());
+	ComboBox1->Items->Clear();
+      	   std::vector< std::vector<string> > Resultat;
+Resultat=sql->GetNomRecettes();
+int i=0;
+
+		while(i<Resultat.size())
+		{
+			ComboBox1->Items->Add(Resultat[i][0].c_str()) ;
+			i++;
+		}
+        ComboBox1->Text=Resultat[0][0].c_str();
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+Button1->Visible=false;
+		Tableau->Visible=false;
+		ComboBox1->Visible=false;
+		Button3->Visible=false;
+        Button4->Visible=false;
+		Button2->Visible=false;
+
+
+		Label1->Visible=true;
+		Edit1->Visible=true;
+		Edit2->Visible=true;
+		Edit3->Visible=true;
+		Edit4->Visible=true;
+		Edit5->Visible=true;
+		Button5->Visible=true;
+
+        recette donnees;
+AnsiString nom;
+nom=ComboBox1->Text;
+donnees=sql->GetRecette(nom.c_str());
+
+Edit1->Text=donnees.RFID.c_str();
+Edit2->Text=donnees.nom.c_str();
+Edit3->Text=donnees.t1;
+Edit4->Text=donnees.t2;
+Edit5->Text=donnees.t3;
+Edit6->Text=donnees.idRecette;
+Edit7->Text=donnees.idRfid;
+
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Button5Click(TObject *Sender)
+{
+	 recette donnees;
+	 AnsiString convert;
+	 convert=Edit1->Text;
+	 donnees.RFID=convert.c_str();
+	 convert=Edit2->Text;
+	 donnees.nom=convert.c_str();
+	 convert=Edit3->Text;
+	 donnees.t1=atoi(convert.c_str());
+	 convert=Edit4->Text;
+	 donnees.t2=atoi(convert.c_str());
+	 convert=Edit5->Text;
+	 donnees.t3=atoi(convert.c_str());
+      convert=Edit6->Text;
+	 donnees.idRecette=atoi(convert.c_str());
+	  convert=Edit7->Text;
+	 donnees.idRfid=atoi(convert.c_str());
+
+	int etat=sql->MajRecette(donnees);
+    Button1->Visible=true;
+}
+//---------------------------------------------------------------------------
+

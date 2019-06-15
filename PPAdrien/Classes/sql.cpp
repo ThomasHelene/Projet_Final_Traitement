@@ -9,50 +9,65 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-	bool Sql::OnConnect(string adress, string user,string mdp, string nameBDD){
-			// Utiliser la librairie mysql pour se connecter
-			bool etat;
-			  if (!mysql_real_connect(this->sql, adress.c_str(), user.c_str(), mdp.c_str() , nameBDD.c_str(), 0, NULL, 0))
-			   {
-					etat = false;
 
-			   }
-			   else
-			   {
-					etat = true;
-
-			   }
-			   return etat;
-	}
-
-
-
-	Recette Sql::GetRecette(int IdRecette){
-			 Recette R1 ;
-			 // utilise l'objet mysql de la librairie pour executer une requete
-			 // R1 = new Recette(t1,T2,T3)
-
-			 //3,6,5,1 viernt de la base
-			// R1.creerRecette(3,6,5,1) ;
-
-			 return R1;
-
-	}
-
-
-	Sql::Sql()
+    	Sql::Sql()
 	{
-		this->sql = new MYSQL();
-		mysql_init(this->sql);
+
+         bdd = new BDD();
 
 
 
 	}
 	Sql::~Sql()
 	{
-		  mysql_close(this->sql);
+        delete bdd;
 
 	}
+
+
+
+
+
+	bool Sql::OnConnect(string adress, string user,string mdp, string nameBDD){
+			// Utiliser la librairie mysql pour se connecter
+
+					  bool etat;
+					  etat=bdd->Connexion(adress,user,mdp,nameBDD);
+                      return etat;
+
+	}
+
+
+
+	Recette Sql::GetRecette(std::string NomRecette)
+	{
+
+
+	   string requete;
+	   requete="SELECT `ID-Recette`,`RFID`.`id`,`RFID`.`Numero`, `Nom`, `Bac_1`, `Bac_2`, `Bac_3` FROM `Recette`,`RFID` WHERE `RFID`.`id`= `Recette`.`ID-RFID` AND `Nom`='";
+	   requete+= NomRecette;
+	   requete+="'";
+
+
+		   vector< vector<std::string> > Resultat;
+
+		   Resultat= bdd->select(requete);
+
+		   recette r1;
+		   r1.idRecette=std::atoi(Resultat[0][0].c_str());
+           r1.idRfid=atoi(Resultat[0][1].c_str());
+		   r1.RFID=Resultat[0][2];
+		   r1.nom=Resultat[0][3];
+		   r1.t1= std::atoi(Resultat[0][4].c_str());
+		   r1.t2= std::atoi(Resultat[0][5].c_str());
+		   r1.t3= std::atoi(Resultat[0][6].c_str());
+
+           return r1;
+
+
+	}
+
+
 
 	bool Sql::CreerRecette(std::string temps1,std::string temps2,std::string temps3,std::string CodeRfid,std::string Nom)
 	{
@@ -62,45 +77,18 @@
 		requete+=CodeRfid;
 		requete+="')";
 
-                   int test=mysql_query(this->sql,requete.c_str());
-
-
-
+				 bdd->insert(requete);
 
         // On récupère l'id correspondant au code RFID qu'on a rentré
 		 std::string request;
 		 request="SELECT `id` FROM `RFID` WHERE `Numero`='";
 		 request+=CodeRfid;
          request+="' ORDER BY `id` DESC;";
-		std::vector< std::vector<string> > RequestResult;
+		
 
-		MYSQL_RES *res; /* holds the result set */
-		MYSQL_ROW row;
-		int NbCol=0;
+			 vector< vector<std::string> > Resultat;
 
-		mysql_query(this->sql,request.c_str());
-		res = mysql_store_result(this->sql);
-		int rows = mysql_num_rows(res);
-		//RequestResult.resize(rows);
-		NbCol =  mysql_num_fields(res);
-
-		while ((row = mysql_fetch_row(res))) {
-			std::vector<string> copie;
-		   for(int x = 0; x < NbCol; x++)
-		   {
-			   if(row[x] != NULL)
-			   {
-					copie.push_back(row[x]);
-			   }
-		   }
-
-		   RequestResult.push_back(copie);
-		   //copie.clear();
-		}
-		if(res != NULL)
-		mysql_free_result(res);
-
-
+           Resultat= bdd->select(request);
 
 
 
@@ -118,8 +106,8 @@
 
         // On insère la recette
 
-		requete="INSERT INTO `Recette`(`ID-RFID`,`Nom` ,`Bac n°1`, `Bac n°2`, `Bac n°3`) VALUES (";
-		requete+=RequestResult[0][0]; // id récupérée précédemment
+		requete="INSERT INTO `Recette`(`ID-RFID`,`Nom` ,`Bac_1`, `Bac_2`, `Bac_3`) VALUES (";
+		requete+=Resultat[0][0]; // id récupérée précédemment
 		requete+=",'";
 		requete+=Nom;
 		requete+="',";
@@ -129,18 +117,54 @@
 		requete+=",";
         requete+=temps3;
 		requete+=")";
-            test=mysql_query(this->sql,requete.c_str());
-
-		 if(test==0)
-		 {
-             return true;
-		 }
-		 else
-		 {
-             return false;
-         }
+        bool etat;
+	   etat= bdd->insert(requete);
+       return etat;
+         
 	}
-	bool Sql::SupprimerRecette()
+	bool Sql::SupprimerRecette(string NomRecette)
 	{
+	 string requete;
+	  requete="DELETE FROM `Recette` WHERE `Nom`='";
+      bool etat;
+	   requete+= NomRecette;
+	   requete+="'";
+	   etat= bdd->insert(requete);
+       return etat;
 
-    }
+	}
+
+	  vector< vector<std::string> > Sql::GetNomRecettes()
+	  {
+        string requete;
+		 requete="SELECT `Nom` FROM `Recette` WHERE 1";
+		 return bdd->select(requete);
+
+	  }
+	   bool Sql::MajRecette(recette r2)
+	   {
+			   string requete;
+
+		 requete="UPDATE `Recette` SET ";
+		 requete+="`Bac_1`=";
+		 requete+=AnsiString (r2.t1).c_str();
+		 requete+=",`Bac_2`=";
+		 requete+=AnsiString(r2.t2).c_str();
+		 requete+=",`Bac_3`=";
+		 requete+=AnsiString(r2.t3).c_str();
+		 requete+= " WHERE `ID-Recette`=";
+		 requete+=AnsiString(r2.idRecette).c_str();
+		 requete+="";
+		  bdd->insert(requete);
+
+
+		  string requete1;
+		  requete1="UPDATE `RFID` SET `Numero`='";
+		  requete1+=r2.RFID;
+		  requete1+="' WHERE `id`=";
+		  requete1+=AnsiString(r2.idRfid).c_str();
+
+         return bdd->insert(requete1);
+	   }
+
+

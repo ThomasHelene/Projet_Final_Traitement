@@ -5,22 +5,22 @@
 
 #ifndef sqlH
 #define sqlH
+#include <iostream>
+#include <system.hpp>
+#include <string.h>
+#include <vector>
 
 #include <string.h>
-#include <iostream>
-#include <string>
+#include <stdlib.h>
 #include "recette.h"
 #include <windows.h>
-#include "./include/mysql.h"
+#include "./Classes/mysql.h"
 using namespace std;
 
 class Sql
 {
 	private:
-//	Sql *sql1;
-	 MYSQL *sql;
-
-
+         BDD * bdd;
 	public:
 
 	//Construteur destructeur
@@ -30,12 +30,16 @@ class Sql
 	//Se connecter à la base via la lib mysql
 	bool OnConnect(string adress, string user,string mdp, string nameBDD);
 	//envoie   d'une requet et forme un objet de type recette
-	Recette GetRecette(int IdRecette);
+	Recette GetRecette(std::string NomRecette);
 	bool CreerRecette(std::string temps1,std::string temps2,std::string temps3,std::string CodeRfid,std::string Nom);
-	bool SupprimerRecette();
+	bool SupprimerRecette(string NomRecette);
+	  vector< vector<std::string> > GetNomRecettes();
+	  bool MajRecette(recette r2);
 
 
-	void ReConnect();
+
+
+
 
 };
 //---------------------------------------------------------------------------

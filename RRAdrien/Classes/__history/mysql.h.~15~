@@ -1,0 +1,18 @@
+ #include <string.h>
+  #include <vector>
+
+#ifndef mysqlH
+#define mysqlH
+using namespace std;
+class BDD
+{
+		 BDD();
+		 ~BDD();
+ void insert(std::string requete);
+  vector< vector<std::string> > select(std::string requete);
+
+
+};
+
+//---------------------------------------------------------------------------
+#endif
